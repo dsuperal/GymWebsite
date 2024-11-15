@@ -1,0 +1,74 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #fce4ec;
+    color: #ff4081;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+button {
+    background-color: #ff4081;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #f50057;
+}
+
+input {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ff4081;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #f50057;
+}
+
+a {
+    color: #ff4081;
+}
+
+a:hover {
+    color: #f50057;
+    text-decoration: underline;
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #ff4081;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #fce4ec;
+}

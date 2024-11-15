@@ -6,28 +6,27 @@
     <title>Registration Form</title>
     <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
-<body>
-    <div class="rform"><h1>Registration Form</h1></div>
+<body style="background-color: #fce4ec; font-family: 'Comic Sans MS', cursive, sans-serif; color: #ff4081;">
+    <div class="rform">
+        <h1>Registration Form</h1>
+    </div>
     <div class="sec2">
-        <form id = "register" action = "/" method = "POST">
+        <form id="register" action="/" method="POST">
             <div id="name">
-                <h2 class="name">Name</h2>
-                <input class = "fname" type="text" name="f_name"><br>
-                <h2 class="name">Mail Id</h2>
-                <input class = "mail" type="text" name="mail"><br>
+                <h2 class="name">Full Name</h2>
+                <input class="fname" type="text" name="f_name" placeholder="Enter your full name" required style="padding: 10px; border-radius: 5px; border: 2px solid #ff4081; font-size: 16px; margin: 10px 0;"><br>
+                
+                <h2 class="name">Mail ID</h2>
+                <input class="mail" type="text" name="mail" placeholder="Enter your Mail ID" required title="Please enter Mail ID" style="padding: 10px; border-radius: 5px; border: 2px solid #ff4081; font-size: 16px; margin: 10px 0;"><br>
+                
                 <h2 class="name">Phone Number</h2>
-                <input class = "phone" type="text" name="phone"><br>
+                <input class="phone" type="tel" name="phone" placeholder="Enter your phone number" required title="Please enter a valid phone number" pattern="[0-9]{10}" style="padding: 10px; border-radius: 5px; border: 2px solid #ff4081; font-size: 16px; margin: 10px 0;"><br>
 
                 <br>
-                <button type="reset" id = "reset" style="vertical-align:middle"><span>Clear</span> </button>
-                <button type="submit" id = "submit" style="vertical-align:middle"><span>Submit</span> </button>
-
+                <button type="reset" id="reset" style="background-color: #ff4081; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 10px;"><span>Clear</span></button>
+                <button type="submit" id="submit" style="background-color: #ff4081; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 10px;"><span>Submit</span></button>
             </div>
         </form>
     </div>
-
-    <!--   <script src="./pages/form.js></script>" -->
-
-
 </body>
 </html>
