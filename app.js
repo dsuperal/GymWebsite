@@ -5,6 +5,13 @@ const port = 8000;
 
 app.use(express.static(__dirname));
 
+app.get("/",(req,res) => {
+    res.sendFile(__dirname + "/pages/home.html");
+});
+app.get("/Login",(req,res) => {
+    res.sendFile(__dirname + "/pages/login.html");
+});
+
 app.get("/SignUp",(req,res) => {
     res.sendFile(__dirname + "/pages/form.html");
 });
