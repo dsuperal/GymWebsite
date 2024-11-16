@@ -11,6 +11,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Serve the form
 app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/pages/home.html");
+});
+
+// Serve the Login Page
+app.get("/login", (req, res) => {
+    res.sendFile(__dirname + "/pages/login.html");
+});
+
+// Serve the Registration Form
+app.get("/signup", (req, res) => {
     res.sendFile(__dirname + "/pages/form.html");
 });
 
