@@ -5,26 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <link rel="stylesheet" type="text/css" href="/styles.css">
+    <style>
+        body {
+            background-color: #fce4ec;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #ff4081;
+        }
+
+        .rform {
+            text-align: center;
+        }
+
+        .sec2 {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #register {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .input-field {
+            flex: 1 1 30%;
+            min-width: 250px;
+            margin-bottom: 10px;
+        }
+
+        .input-field h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .input-field input, .input-field select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #ff4081;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button[type="reset"] {
+            margin-right: 10px;
+        }
+    </style>
 </head>
-<body style="background-color: #fce4ec; font-family: 'Comic Sans MS', cursive, sans-serif; color: #ff4081;">
+<body>
     <div class="rform">
-        <h1>Registration Form</h1>
+        <h1>SignUp</h1>
     </div>
     <div class="sec2">
         <form id="register" action="/" method="POST">
-            <div id="name">
-                <h2 class="name">Full Name</h2>
-                <input class="fname" type="text" name="f_name" placeholder="Enter your full name" required style="padding: 10px; border-radius: 5px; border: 2px solid #ff4081; font-size: 16px; margin: 10px 0;"><br>
-                
-                <h2 class="name">Mail ID</h2>
-                <input class="mail" type="text" name="mail" placeholder="Enter your Mail ID" required title="Please enter Mail ID" style="padding: 10px; border-radius: 5px; border: 2px solid #ff4081; font-size: 16px; margin: 10px 0;"><br>
-                
-                <h2 class="name">Phone Number</h2>
-                <input class="phone" type="tel" name="phone" placeholder="Enter your phone number" required title="Please enter a valid phone number" pattern="[0-9]{10}" style="padding: 10px; border-radius: 5px; border: 2px solid #ff4081; font-size: 16px; margin: 10px 0;"><br>
+            <div class="input-field">
+                <h2>Membership ID</h2>
+                <input type="number" name="membership_id" placeholder="Enter Membership ID" required>
+            </div>
 
-                <br>
-                <button type="reset" id="reset" style="background-color: #ff4081; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 10px;"><span>Clear</span></button>
-                <button type="submit" id="submit" style="background-color: #ff4081; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 10px;"><span>Submit</span></button>
+            <div class="input-field">
+                <h2>First Name</h2>
+                <input type="text" name="first_name" placeholder="Enter your first name" required>
+            </div>
+
+            <div class="input-field">
+                <h2>Last Name</h2>
+                <input type="text" name="last_name" placeholder="Enter your last name" required>
+            </div>
+
+            <div class="input-field">
+                <h2>Gender</h2>
+                <select class="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Non-binary">Non-binary</option>
+                </select>
+            </div>
+            
+
+            <div class="input-field">
+                <h2>Date of Birth</h2>
+                <input type="date" name="dob" placeholder="Enter your date of birth" required>
+            </div>
+
+            <div class="input-field">
+                <h2>Join Date</h2>
+                <input type="date" name="join_date" placeholder="Enter your join date" required>
+            </div>
+            
+            <div class="input-field">
+                <h2>Payment Status</h2>
+                <select class="paymentstatus" name="payment_status" required>
+                    <option value="paid">Paid</option>
+                    <option value="unpaid">Unpaid</option>
+                </select>
+            </div>
+            
+
+            <div class="input-field">
+                <h2>Email</h2>
+                <input type="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-field">
+                <h2>Phone Number</h2>
+                <input type="tel" name="phone_number" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="input-field">
+                <h2>Street</h2>
+                <input type="text" name="street" placeholder="Enter your street" required>
+            </div>
+
+            <div class="input-field">
+                <h2>City</h2>
+                <input type="text" name="city" placeholder="Enter your city" required>
+            </div>
+
+            <div class="input-field">
+                <h2>State</h2>
+                <input type="text" name="state" placeholder="Enter your state" required>
+            </div>
+
+            <div class="input-field">
+                <h2>Zip Code</h2>
+                <input type="text" name="zip" placeholder="Enter your zip code" required>
+            </div>
+
+            <div class="input-field">
+                <button type="reset">Clear</button>
+                <button type="submit">Submit</button>
             </div>
         </form>
     </div>

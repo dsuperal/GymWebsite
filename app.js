@@ -5,7 +5,7 @@ const port = 8000;
 
 app.use(express.static(__dirname));
 
-app.get("/form",(req,res) => {
+app.get("/SignUp",(req,res) => {
     res.sendFile(__dirname + "/pages/form.html");
 });
 
