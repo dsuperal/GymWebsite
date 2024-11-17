@@ -22,11 +22,11 @@ const pool = new Pool({
 });
 
 app.post("/", async (req, res) => {
-    const { f_name, mail, phone } = req.body;
+    const { name, mail, phone } = req.body;
 
     try {
         // Use a pooled client
-        await pool.query('INSERT INTO Form (name, mail, mobile) VALUES ($1, $2, $3)', [f_name, mail, phone]);
+        await pool.query('INSERT INTO Form (name, mail, mobile) VALUES ($1, $2, $3)', [name, mail, phone]);
         console.log("Data Saved");
     } catch (err) {
         console.error("Error saving data:", err);
