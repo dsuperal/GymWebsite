@@ -13,7 +13,7 @@ client.connect((err => {
 
 
 function userExists(email, callback){
-    let sql = "SELECT * FROM form WHERE mail = $1";
+    let sql = "SELECT * FROM member WHERE email = $1";
     client.query(sql, [email],(err,results) => {
         if(err){
             return callback(err);
@@ -22,6 +22,10 @@ function userExists(email, callback){
         callback(null, results.rows.length>0);
     });
 }
+
+// function passwordCheck(email,password, callback){
+//     let sql = "SELECT * FROM form WHERE mail = $1";
+// }
 
 
 
