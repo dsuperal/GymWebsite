@@ -16,5 +16,7 @@ router.get('/login', (req,res) =>{
 })
 router.post('/login', memberLogin);
 
-
+router.get('/signup', (req,res) =>{
+    res.render('signup',{ error: null });
+})
 module.exports = router;
