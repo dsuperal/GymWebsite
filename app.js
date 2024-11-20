@@ -1,21 +1,30 @@
+var express = require("express");
+var app = express();
+var port = 8000;
+const indexRouter = require('./index');
 const bodyParser = require("body-parser");
-const express = require("express");
-const app = express();
-const port = 8000;
 
-app.use(express.static(__dirname));
 
-app.get("/form",(req,res) => {
-    res.sendFile(__dirname + "/pages/form.html");
-});
 
-app.use(bodyParser.urlencoded({extended:false}))
-app.get('/submit',function(req,res){
-    console.log('Data Saved')
+app.use(express.static('images'));
 
-})
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({extended : true}));
+
+app.set("view engine", "ejs");
+app.set('views', __dirname + '/views');
+
+
+app.use(express.static('databseFiles'));
+app.use(express.static('images'));
+
+
+app.use('/', indexRouter);
 
 app.listen(port, () =>{
     console.log(`Example app listening on port ${port}!`);
 });
+
+
 
