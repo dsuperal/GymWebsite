@@ -48,38 +48,44 @@ router.post('/admin_login', (req,res) =>{
 });
 
 
-// Search for members in the database
+// Redirect /admin_page to /search with an empty query
+router.get('/admin_page', (req, res) => {
+    res.redirect('/search');
+});
+
+// Handle search functionality and initial load
 router.get("/search", async (req, res) => {
-    const searchTerm = req.query.q || "";  // Get the search query
+    const searchTerm = req.query.q || ""; // Get the search query
     try {
-        const query = `
-            SELECT * FROM public.member 
-            WHERE first_name ILIKE $1 
-            OR last_name ILIKE $1
-            OR membership_id::text ILIKE $1;
-        `;
-        const values = [`%${searchTerm}%`];
+        let query;
+        let values;
+
+        if (searchTerm) {
+            // If there's a search term, filter the results
+            query = `
+                SELECT * FROM public.member 
+                WHERE first_name ILIKE $1 
+                OR last_name ILIKE $1
+                OR membership_id::text ILIKE $1;
+            `;
+            values = [`%${searchTerm}%`];
+        } else {
+            // If no search term, get all members
+            query = "SELECT * FROM public.member;";
+            values = [];
+        }
+
+        // Execute the query
         const result = await connection.query(query, values);
         const members = result.rows;
 
-        // Ensure that searchTerm is passed along with members to the view
+        // Render the admin page with members and the current search term
         res.render("admin_page", { members, searchTerm });
     } catch (err) {
         console.error("Error searching members:", err.stack);
         res.status(500).send("Error searching members.");
     }
 });
-
-
-
-
-
-router.get('/admin_page', (req, res) => {
-    const searchTerm = req.query.q || "";  // Get search term from query params or set it to empty
-    const members = [];  // Default to an empty array if no members found
-    res.render('admin_page', { members, searchTerm });
-});
-
 
 router.get('/payhistory', (req, res) => {
     console.log('session on /payhistory: ', req.session);
