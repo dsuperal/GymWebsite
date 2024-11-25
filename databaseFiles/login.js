@@ -1,5 +1,5 @@
 const express = require('express');
-const { userExists } = require('./database');
+const { userExists ,passwordCheck} = require('./database');
 var connection = require('./database').databaseConnection;
 
 function memberLogin(req,res){
@@ -19,9 +19,29 @@ function memberLogin(req,res){
             return res.render("login",{error:'User does not exists'});
         }
        
-        return res.render("payhistory");
-        
     })
+
+    passwordCheck(email,password,(err,validPassword) => {
+        console.log('Mark 3');
+        console.log(validPassword);
+
+        if(err){
+            console.log('Mark 4');
+            return res.status(500).send('Error checking user existence');    
+        }
+         console.log('Mark 5');
+
+        if(validPassword){
+            
+            console.log(email,'is logged in')
+            admin = false;
+            req.session.user = {email,admin};
+            return res.redirect("/payhistory");
+        }
+        console.log('Mark 6');
+    })
+
+   
 
 }
 

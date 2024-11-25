@@ -1,7 +1,9 @@
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-color: #fce4ec;
-    color: #ff4081;
+    background-color: #fce4ec;  /* Soft pink background */
+    color: #ff4081;  /* Pink text */
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -12,7 +14,7 @@ body {
 }
 
 button {
-    background-color: #ff4081;
+    background-color: #ff4081;  /* Pink button */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -71,4 +73,16 @@ th {
 
 tr:nth-child(even) {
     background-color: #fce4ec;
+}
+
+/* Logo styling for top-right corner */
+.logo-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logo {
+    width: 100px;  /* Adjust the logo size */
+    height: auto;
 }
